@@ -26,3 +26,4 @@ connect = { white_space }, 'CONNECT', space, device_terminal, space, device_term
 monitor = { white_space }, 'MONITOR', { space, device_terminal }, { white_space } ;
 device_terminal = identifier, [ '.', identifier ] ;
 wo de da ji ba zhen de da
+»’¡Àƒ„√«
