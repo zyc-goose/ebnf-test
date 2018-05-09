@@ -27,3 +27,4 @@ monitor = { white_space }, 'MONITOR', { space, device_terminal }, { white_space 
 device_terminal = identifier, [ '.', identifier ] ;
 wo de da ji ba zhen de da
 ping shen me shan lao zi
+ni da ye de diao tai da le
