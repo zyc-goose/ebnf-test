@@ -1,4 +1,13 @@
-definition_file = { statement } ;
-statement = {space}, "(", ( device | connect | monitor ), ")", {space} ;
-device = {space}, "DEVICE", space, device_type, {}
-asdlfkjasdlkf
+alpha = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' |
+        'H' | 'I' | 'J' | 'K' | 'L' | 'M' | 'N' |
+        'O' | 'P' | 'Q' | 'R' | 'S' | 'T' | 'U' |
+        'V' | 'W' | 'X' | 'Y' | 'Z' ;
+digit_nonzero = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+digit = '0' | digit_nonzero ;
+white_space = ' ' | '\n' | '\t' ;
+space = white_space, { white_space } ;
+
+definition_file = { statement }
+statement =
+
+jinanran da sha bi
