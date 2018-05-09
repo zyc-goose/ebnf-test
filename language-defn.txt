@@ -24,4 +24,6 @@ device_with_qualifier = 'CLOCK' | 'SWITCH' | 'AND' | 'NAND' | 'OR' | 'NOR' ;
 device_no_qualifier = 'DTYPE' | 'XOR' ;
 connect = { white_space }, 'CONNECT', space, device_terminal, space, device_terminal, { white_space } ;
 monitor = { white_space }, 'MONITOR', { space, device_terminal }, { white_space } ;
-device_terminal = identifier, [ '.', identifier ] ;
+
+
+dashabi
