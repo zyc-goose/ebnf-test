@@ -1,0 +1,4 @@
+definition_file = { statement } ;
+statement = {space}, "(", ( device | connect | monitor ), ")", {space} ;
+device = {space}, "DEVICE", space, device_type, {}
+asdlfkjasdlkf
