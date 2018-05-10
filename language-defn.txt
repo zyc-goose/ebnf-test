@@ -22,7 +22,7 @@ statement = { white_space }, '(', ( device | connect | monitor ), ')', { white_s
 (* So someone can provide a device without device identifier? *)
 (* No. There must be at least one device identifier in the list *)
 device = { white_space }, 'DEVICE', space, device_type, space, ('is'|'are'), space, identifier, { space, identifier }, { white_space } ;
-device_type = device_no_qualifier | device_with_qualifier, number ;
+device_type = device_no_qualifier | device_with_qualifier, space, number ;
 device_with_qualifier = 'CLOCK' | 'SWITCH' | 'AND' | 'NAND' | 'OR' | 'NOR' ;
 device_no_qualifier = 'DTYPE' | 'XOR' ;
 
