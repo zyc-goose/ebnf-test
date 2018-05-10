@@ -1,14 +1,14 @@
-asks need to be performed:
+Tasks need to be performed:
 
 Week1:
 
 1. Project outline+Task distribution
 2. Version Control Setup and Config
 3. Language definition
-4. Possible Semantic Error and Check Language Definition: 
+4. Possible Semantic Error and Check Language Definition:
  => Design 6 different circuits that covers all the ranges of possible types. => each member describe all the five circuits using the defined syntax. => Check possible semantic errors and if anything sb in the language definition.  Target number of errors: 6 
 5. Description of Error Handling Each member carries out 2 error handling procedures 
-6. Two examples Redo process 4 for another 2 schematics. 
+6. Two examples Redo process 4 for another 2 schematics.
 
 7. Integration into a report
 
