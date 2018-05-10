@@ -20,7 +20,8 @@ definition_file = { statement } ;
 statement = { white_space }, '(', ( device | connect | monitor ), ')', { white_space } ;
 
 (* So someone can provide a device without device identifier? *)
-device = { white_space }, 'DEVICE', space, device_type, { space, identifier }, { white_space } ;
+(* No. There must be at least one device identifier in the list *)
+device = { white_space }, 'DEVICE', space, device_type, space, identifier, { space, identifier }, { white_space } ;
 device_type = device_no_qualifier | device_with_qualifier, number ;
 device_with_qualifier = 'CLOCK' | 'SWITCH' | 'AND' | 'NAND' | 'OR' | 'NOR' ;
 device_no_qualifier = 'DTYPE' | 'XOR' ;
@@ -28,6 +29,6 @@ device_no_qualifier = 'DTYPE' | 'XOR' ;
 connect = { white_space }, 'CONNECT', space, device_terminal, space, device_terminal, { white_space } ;
 
 (* So open monitor without specifying a signal? *)
-monitor = { white_space }, 'MONITOR', { space, device_terminal }, { white_space } ;
-
+(* No. Same problem as DEVICE. *)
+monitor = { white_space }, 'MONITOR', space, device_terminal, { space, device_terminal }, { white_space } ;
 device_terminal = identifier, [ '.', identifier ] ;
