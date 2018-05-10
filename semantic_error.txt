@@ -1,5 +1,7 @@
 1. Repeated variable declaration
 2. Variable used but not declared
-3. Reserved words error
-4. Connect input to input
-5. Input has the same name as the device
+3. Connect input to input
+4. Input has the same name as the device
+5. Device G has 2 input, but G.I3 is referenced
+6. Unrecognised attribute name, e.g. G.foo, G.bar
+7. Device qualifier out of range, e.g. NAND 17, SWITCH 2
