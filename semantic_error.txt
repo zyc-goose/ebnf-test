@@ -1,3 +1,5 @@
 1. Repeated variable declaration
 2. Variable used but not declared
 3. Reserved words error
+4. Connect input to input
+5. Input has the same name as the device
