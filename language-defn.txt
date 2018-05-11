@@ -16,21 +16,19 @@ identifier = alpha, { alpha | digit } ;
 number = '0' | digit_nonzero, { digit } ;
 
 (* Definition of main language grammar *)
-definition_file = device_list, connect_list, monitor_list;
-device_list = { white_space }, device, { { white_space }, device }, { white_space } ;
-connect_list = { white_space }, connect, { { white_space }, connect }, { white_space } ;
-monitor_list = { white_space }, monitor, { { white_space }, monitor }, { white_space } ;
+definition_file = { statement } ;
+statement = { white_space }, '(', ( device | connect | monitor ), ')', { white_space } ;
 
 (* So someone can provide a device without device identifier? *)
 (* No. There must be at least one device identifier in the list *)
-device = '(', { white_space }, 'DEVICE', space, identifier, { space, identifier }, space, ('is'|'are'), space, device_type, { white_space }, ')' ;
+device = { white_space }, 'DEVICE', space, identifier, { space, identifier }, space, ('is'|'are'), space, device_type, { white_space } ;
 device_type = device_no_qualifier | device_with_qualifier, space, number ;
 device_with_qualifier = 'CLOCK' | 'SWITCH' | 'AND' | 'NAND' | 'OR' | 'NOR' ;
 device_no_qualifier = 'DTYPE' | 'XOR' ;
 
-connect = '(', { white_space }, 'CONNECT', space, device_terminal, space, 'to', space, device_terminal, { white_space }, ')' ;
+connect = { white_space }, 'CONNECT', space, device_terminal, space, 'to', space, device_terminal, { white_space } ;
 
 (* So open monitor without specifying a signal? *)
 (* No. Same problem as DEVICE. *)
-monitor = '(', { white_space }, 'MONITOR', space, device_terminal, { space, device_terminal }, { white_space }, ')' ;
+monitor = { white_space }, 'MONITOR', space, device_terminal, { space, device_terminal }, { white_space } ;
 device_terminal = identifier, [ '.', identifier ] ;
