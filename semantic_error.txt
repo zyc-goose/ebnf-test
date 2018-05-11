@@ -5,3 +5,4 @@
 5. Device G has 2 input, but G.I3 is referenced
 6. Unrecognised attribute name, e.g. G.foo, G.bar
 7. Device qualifier out of range, e.g. NAND 17, SWITCH 2
+8. Deviced defined but no input is given
