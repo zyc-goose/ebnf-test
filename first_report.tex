@@ -4,7 +4,7 @@
 \usepackage{amsmath,graphicx,psfrag,pstcol,float,listings,color}
 \usepackage{algorithm,algpseudocode,booktabs}
 \usepackage{multirow}
-\usepackage{minted}
+%\usepackage{minted}
 \graphicspath{{./defn_files/}}
 \def\n{\noindent}
 \def\u{\underline}
@@ -116,7 +116,8 @@ Brian Sun & in charge of & Error display and GUI\\
 
 \subsection{EBNF Source File}
 
-\inputminted{ebnf}{language-defn.ebnf}
+\lstinputlisting{language-defn.ebnf}
+%\inputminted{ebnf}{language-defn.ebnf}
 
 \section{Examples of Definition Files}
 In this section, we define two circuits following the language rules specified above, namely a sequential carry adder and a binary multiplier.
