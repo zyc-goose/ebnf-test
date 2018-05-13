@@ -26,7 +26,7 @@ Scanner 					Paul Zhao				Paul Zhao				Charles Zhou
 parse_network				Paul Zhao				Paul Zhao				Charles Zhou
 top_down_parsing			Charlse Zhou			Charlse Zhou			Paul Zhao
 error_handling				Brian Sun				Brian Sun				Paul Zhao
-Other interconnections		Paul Zhao				Paul Zhao				Charlse Zhou
+Network Construction		Charles Zhou			Charles Zhou			Paul Zhao
 GUI							Brian Sun				N/A 					Charlse Zhou
 
 Week4: Maintenance
