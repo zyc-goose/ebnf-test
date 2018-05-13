@@ -4,6 +4,7 @@
 \usepackage{amsmath,graphicx,psfrag,pstcol,float,listings,color}
 \usepackage{algorithm,algpseudocode,booktabs}
 \usepackage{multirow}
+\usepackage{minted}
 \graphicspath{{./defn_files/}}
 \def\n{\noindent}
 \def\u{\underline}
@@ -50,10 +51,10 @@
 \end{center}
 \begin{table}[H]
 \centering
-\begin{tabular}{ p{2cm}p{3cm}p{4cm} p{3cm}} 
-&Brian Sun & Trinity College & gs534 \\ 
-&Charles Zhou & Magdalene College & yz493 \\ 
-&Paul Zhao & Magdalene College & yz496 \\ 
+\begin{tabular}{ p{2cm}p{3cm}p{4cm} p{3cm}}
+&Brian Sun & Trinity College & gs534 \\
+&Charles Zhou & Magdalene College & yz493 \\
+&Paul Zhao & Magdalene College & yz496 \\
 \end{tabular}
 \end{table}
 
@@ -63,7 +64,7 @@
 \end{center}
 
 \section{Introduction}
-\n The aim of this project is to develop a logic simulation program in Python. Firstly the teamwork planning is proposed. Then, the \textit{EBNF grammar} is defined, followed by the analyses of possible semantic errors based on the grammar, and relevant error handling approaches. Finally, two example logic definitions are given for demonstration. 
+\n The aim of this project is to develop a logic simulation program in Python. Firstly the teamwork planning is proposed. Then, the \textit{EBNF grammar} is defined, followed by the analyses of possible semantic errors based on the grammar, and relevant error handling approaches. Finally, two example logic definitions are given for demonstration.
 \section{Teamwork Planning}
 \begin{table}[H]
 \begin{tabular}{p{8cm}p{4cm}p{3cm}}
@@ -100,7 +101,7 @@ Final Integration & All Members & N/A & 28/05 - 30/05\\
 \n Week 2 and 3 are the main period of constructing and testing the code. Tasks are assigned to each team member as in Table 2. The one who takes the task writes not only the module but also the \textit{pytest} where applicable. Though the task taker will be responsible to the modules he writes, the reviewers need to review, comment and potentially modify the code in order to ensure the quality and maintainability of the code. \par
 \vspace{0.3cm}
 
-\n According to the above task distribution, each team member is in charge of a big block, and this is also convenient for code maintenance. Once the change is announced, each member can quickly find the changes need to be done in his own block, and do the necessary modifications. The allocation of responsibilities is listed below: 
+\n According to the above task distribution, each team member is in charge of a big block, and this is also convenient for code maintenance. Once the change is announced, each member can quickly find the changes need to be done in his own block, and do the necessary modifications. The allocation of responsibilities is listed below:
 
 \begin{table}[H]
 \begin{tabular}{p{3cm}p{4cm}p{8cm}}
@@ -115,7 +116,7 @@ Brian Sun & in charge of & Error display and GUI\\
 
 \subsection{EBNF Source File}
 
-\lstinputlisting{language-defn.txt}
+\inputminted{ebnf}{language-defn.ebnf}
 
 \section{Examples of Definition Files}
 In this section, we define two circuits following the language rules specified above, namely a sequential carry adder and a binary multiplier.
