@@ -13,7 +13,6 @@
 
 \usepackage{listings}
 \usepackage{pdfpages}
-\usepackage{fancyvrb}
 
 \definecolor{mGreen}{rgb}{0,0.6,0}
 \definecolor{mGray}{rgb}{0.5,0.5,0.5}
@@ -21,21 +20,21 @@
 \definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
 
 \lstdefinestyle{Matlab}{
-    backgroundcolor=\color{backgroundColour},   
+    backgroundcolor=\color{backgroundColour},
     commentstyle=\color{mGreen},
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{mGray},
     stringstyle=\color{mPurple},
     basicstyle=\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,                    
-    numbersep=5pt,                  
-    showspaces=false,                
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
     showstringspaces=false,
-    showtabs=false,                  
+    showtabs=false,
     tabsize=2,
     language=Matlab
 }
@@ -67,7 +66,7 @@
 \n The aim of this project is to develop a logic simulation program in Python. Firstly teamwork planning is proposed. Then, the \textit{EBNF grammar} is defined, followed by the analyses of possible semantic errors based on the grammar, and relevant error handling approaches. Finally, two example logic definitions are given for demonstration. 
 \section{Teamwork Planning}
 \begin{table}[H]
-\begin{tabular}{p{8cm}p{4cm}p{3cm}} 
+\begin{tabular}{p{8cm}p{4cm}p{3cm}}
 \textit{Task names} & \textit{Assignee}&\textit{Duration}\\
 \hline
 Project outline and Task distribution & Brian Sun & 11/05 - 11/05\\
@@ -83,7 +82,7 @@ Integration into a report & All members & 17/05 - 18/05\\
 \n The work in the first week focuses on the grammar definition and verification. After studying the EBNF together, Charles wrote the first draft of the \textit{Grammar}. Then, all three team members each came up with two circuit examples and wrote descriptions following the defined rules. In this process the grammar was checked, and semantic errors were listed. \\
 
 \begin{table}[H]
-\begin{tabular}{p{4.5cm}p{3.5cm}p{4cm}p{2.5cm}} 
+\begin{tabular}{p{4.5cm}p{3.5cm}p{4cm}p{2.5cm}}
 \textit{Task names} & \textit{Assignee} & \textit{Code Reviewer} & \textit{Duration}\\
 \hline
 Names & Paul Zhao & Charles + Brian & 18/05 - 21/05\\
@@ -102,19 +101,24 @@ Final Integration & All Members & N/A & 28/05 - 30/05\\
 \vspace{0.3cm}
 
 \n According to the above task distribution, each team member is in charge of a big block, and this is also convenient for code maintenance. Once the change is announced, each member will quickly find the changes need to be done in his block, and do the necessary modifications. The allocation of responsibilities is listed below: 
+
 \begin{table}[H]
-\begin{tabular}{p{3cm}p{4cm}p{8cm}} 
+\begin{tabular}{p{3cm}p{4cm}p{8cm}}
 Charles Zhou & in charge of & Grammar Definition and Top-down Parsing\\
 Paul Zhao & in charge of & Scanner module and All interconnections\\
 Brian Sun & in charge of & Error display and GUI\\
 \end{tabular}
 \caption{Week4: Maintenance}
 \end{table}
-\section{EBNF}
 
-\section{Possible Semantic Errors}
-\section{Error Handling}
+\section{Specification of Logic Description Language}
+
+\subsection{EBNF Source File}
+
+\lstinputlisting{language-defn.txt}
+
 \section{Examples of Definition Files}
+In this section, we define two circuits following the language rules specified above, namely a sequential carry adder and a binary multiplier.
 
 \subsection{Sequential Carry Adder}
 \begin{figure}[H]
@@ -123,6 +127,8 @@ Brian Sun & in charge of & Error display and GUI\\
     \caption{circuit of a sequential carry adder}
 \end{figure}
 
+\emph{Definition File:}
+\lstinputlisting{defn_files/sequential_carry_adder.txt}
 
 
 \subsection{Binary Multiplier}
@@ -131,13 +137,8 @@ Brian Sun & in charge of & Error display and GUI\\
     \includegraphics[scale=0.6]{bin_multiplier.png}
     \caption{circuit of a binary multiplier}
 \end{figure}
-
-
-
-
-
-\end{document}
-
+\emph{Definition File:}
+\lstinputlisting{defn_files/bin_multiplier.txt}
 
 
 \end{document}
