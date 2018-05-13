@@ -65,33 +65,47 @@
 
 \section{Introduction}
 \section{Teamwork Planning}
-\n Week1 Language Definition and Project Plan:\\
-\n 1. Project outline+Task distribution	[Brian Sun]\\
-\n 2. Version Control Setup and Config		[Charles Zhou]\\
-\n 3. Language Definition 					[All team members]\\
-\n 4. Possible Semantic Error and Check Language definition 	[All team members]\\?\n => Design 6 different circuits that covers all the ranges of possible types.\\
-\n => each member describe all the five circuits using the defined syntax.\\
-\n => Check possible semantic errors and if anything sb in the language definition.\\?\n 5. Description of Error Handling		[Brian Sun]\\
-\n 6. Two examples					[Paul Zhao]\\
-\n 7. Integration into a report			[All team members]\par
+\n The work in the first week focuses on the language definition and verification. After studying the EBNF together, Charles wrote the first draft of the \textit{Grammar}. Then, all three team members each came up with two circuit examples and wrote description following the defined rule. In this process the grammar was checked, and semantic errors were found. \\
+\begin{table}[H]
+\begin{tabular}{p{8cm}p{5cm}} 
+\textit{Task names} & \textit{Assignee}\\
+\hline
+Project outline and Task distribution & Brian Sun\\
+Version Control Setup and Config & Charles Zhou\\
+Grammar Draft 	& Charles Zhou\\
+Modification and Semantic Error & All team members\\
+Description of Error Handling & Brian Sun\\
+Two examples & Paul Zhao\\
+Integration into a report & All team members\\
+\end{tabular}
+\caption{Week1 Language Definition and Project Plan}
+\end{table}
 
-\nWeek2&3: Build and Test
 
-Tasks						Coordinator				Test Writer				Code Reviewer		Start Time		End Time
---------------------------------------------------------------------------------------------------------------------------
-Names? 						Paul Zhao				Paul Zhao				Charles Zhou		
-Scanner 					Paul Zhao				Paul Zhao				Charles Zhou
-parse_network				Paul Zhao				Paul Zhao				Charles Zhou
-top_down_parsing			Charlse Zhou			Charlse Zhou			Paul Zhao
-error_handling				Brian Sun				Brian Sun				Paul Zhao
-Network Construction		Charles Zhou			Charles Zhou			Paul Zhao
-GUI						Brian Sun				N/A 					Charlse Zhou
 
-Week4: Maintenance
-To cope with the change in a short time, each team member recognises and reports the modifications needed in his own part. 
-Charles 	in charge of		Language Definition and Top-down Parsing
-Paul		in charge of 		Scanner module and All interconnections
-Brian 		in charge of 		Error handling and GUI
+\begin{table}[H]
+\begin{tabular}{p{5cm}p{4cm}p{3cm}} 
+\textit{Task names} & \textit{Assignee} & \textit{Code Reviewer}\\
+\hline
+Names & Paul Zhao & Charles Zhou\\
+Scanner & Paul Zhao & Charles Zhou\\
+parse\_network & Paul Zhao & Brian Sun\\
+top\_down\_parsing & Charlse Zhou & Paul Zhao\\
+error\_handling & Brian Sun & Paul Zhao\\
+Network Construction & Charles Zhou & Paul Zhao\\
+GUI & Brian Sun & Charlse Zhou\\
+\end{tabular}
+\caption{Week2\&3: Build and Test Individual Blocks}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{p{3cm}p{4cm}p{8cm}} 
+Charles Zhou & in charge of & Language Definition and Top-down Parsing\\
+Paul Zhao & in charge of & Scanner module and All interconnections\\
+Brian Sun & in charge of & Error display and GUI\\
+\end{tabular}
+\caption{Week4: Maintenance}
+\end{table}
 
 \section{EBNF}
 \section{Possible Semantic Errors}
