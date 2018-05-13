@@ -8,24 +8,32 @@ alpha_lower = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' |
               'o' | 'p' | 'q' | 'r' | 's' | 't' | 'u' |
               'v' | 'w' | 'x' | 'y' | 'z' ;
 alpha = alpha_upper | alpha_lower ;
-digit_nonzero = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' ;
+digit_nonzero = '1' | '2' | '3' | '4' | '5' |
+                '6' | '7' | '8' | '9' ;
 digit = '0' | digit_nonzero ;
 white_space = ' ' | '\n' | '\t' ;
-space = white_space, { white_space } ; (* it has at least one whitespace *)
+space = white_space, { white_space } ;
 identifier = alpha, { alpha | digit } ;
-number = '0' | digit_nonzero, { digit } ; (* leading zeros are not allowed *)
+number = '0' | digit_nonzero, { digit } ;
 
 (* MAIN GRAMMAR *)
 definition_file = { statement } ;
-statement = { white_space }, '(', ( device | connect | monitor ), ')',
+statement = { white_space },
+            '(', ( device | connect | monitor ), ')',
             { white_space } ;
-device = { white_space }, 'DEVICE', space, identifier, { space, identifier },
-         space, ('is'|'are'), space, device_type, { white_space } ;
-device_type = device_no_qualifier | device_with_qualifier, space, number ;
-device_with_qualifier = 'CLOCK' | 'SWITCH' | 'AND' | 'NAND' | 'OR' | 'NOR' ;
+device = { white_space },
+         'DEVICE', space, identifier, { space, identifier },
+         space, ('is'|'are'), space, device_type,
+         { white_space } ;
+device_type = device_no_qualifier |
+              device_with_qualifier, space, number ;
+device_with_qualifier = 'CLOCK' | 'SWITCH' |
+                        'AND' | 'NAND' | 'OR' | 'NOR' ;
 device_no_qualifier = 'DTYPE' | 'XOR' ;
-connect = { white_space }, 'CONNECT', space, device_terminal, space,
+connect = { white_space },
+          'CONNECT', space, device_terminal, space,
           'to', space, device_terminal, { white_space } ;
-monitor = { white_space }, 'MONITOR', space, device_terminal,
+monitor = { white_space },
+          'MONITOR', space, device_terminal,
           { space, device_terminal }, { white_space } ;
 device_terminal = identifier, [ '.', identifier ] ;
