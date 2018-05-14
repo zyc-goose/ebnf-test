@@ -113,8 +113,8 @@ Brian Sun & in charge of & Error display and GUI\\
 \end{table}
 
 \section{Specification of Logic Description Language}
+\lstinputlisting{language-defn.ebnf}
 
-<<<<<<< HEAD
 \section{Error Handling}
 In our design, both \textit{scanner} and \textit{parser} will identify errors, where different types of syntactic errors would be detected by both, while semantic errors would be found solely by the parser, evidently. The scanner only reports an error when it is unable to recogonize the incoming string, for instance when a string contains undefined characters or the string cannot be classified as any \emph{symbol\_type} (e.g. a number starting with digit '0', a name starting with a digit rather than a letter). The parser will identify the rest syntactic errors when the symbol interpreted by the scanner does not match the expected \emph{symbol\_type} specified by the language rules.
 
@@ -122,14 +122,7 @@ In our design, both \textit{scanner} and \textit{parser} will identify errors, w
 
 \n It is required that symbols must be skipped until a suitable point to resume parsing is reached. This is enabled by forcing every statement to be enclosed by brackets '(', ')'. After detecting an error, the parser will advance and look for the next left bracket '(', which indicates the start of a new statement and carry on parsing.
 
-\section{Examples of Definition Files}
-In this section, we define two circuits following the language rules specified above, namely a sequential carry adder and a binary multiplier.
-=======
-\subsection{EBNF Source File}
 
-\lstinputlisting{language-defn.ebnf}
-%\inputminted{ebnf}{language-defn.ebnf}
->>>>>>> 0837cf814fc91300ef720f5018a25a11f9ec3166
 
 \section{Examples of Definition Files}
 In this section, we define two circuits following the language rules specified above, namely a serial adder and a binary multiplier.
