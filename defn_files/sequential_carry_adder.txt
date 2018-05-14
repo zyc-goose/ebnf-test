@@ -1,5 +1,5 @@
 (DEVICE D1 is DTYPE)
-(DEVICE A B Clk Set Clear are SWITCH 1)
+(DEVICE A B Clk Set Clear are SWITCH 0)
 (DEVICE G1 G2 are XOR)
 (DEVICE G3 G4 are AND 2)
 (DEVICE G5 is OR 2)

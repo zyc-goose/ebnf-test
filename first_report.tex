@@ -4,6 +4,7 @@
 \usepackage{amsmath,graphicx,psfrag,pstcol,float,listings,color}
 \usepackage{algorithm,algpseudocode,booktabs}
 \usepackage{multirow}
+%\usepackage{minted}
 \graphicspath{{./defn_files/}}
 \def\n{\noindent}
 \def\u{\underline}
@@ -44,14 +45,13 @@
 \vspace{0.3cm}
 \rule{15.7cm}{0.5mm}
 
-
 \begin{center}
 {\hspace{0.6cm}\Large \textbf {Software First Interim Report}\\
 }
 \end{center}
 \begin{table}[H]
 \centering
-\begin{tabular}{ p{1.5cm}p{5cm}p{6cm} p{6cm}}
+\begin{tabular}{ p{2cm}p{3cm}p{4cm} p{3cm}}
 &Brian Sun & Trinity College & gs534 \\
 &Charles Zhou & Magdalene College & yz493 \\
 &Paul Zhao & Magdalene College & yz496 \\
@@ -64,8 +64,8 @@
 \end{center}
 
 \section{Introduction}
+\n The aim of this project is to develop a logic simulation program in Python. Firstly the teamwork planning is proposed. Then, the \textit{EBNF grammar} is defined, followed by the analyses of possible semantic errors based on the grammar, and relevant error handling approaches. Finally, two example logic definitions are given for demonstration.
 \section{Teamwork Planning}
-\n The work in the first week focuses on the language definition and verification. After studying the EBNF together, Charles wrote the first draft of the \textit{Grammar}. Then, all three team members each came up with two circuit examples and wrote description following the defined rule. In this process the grammar was checked, and semantic errors were found. \\
 \begin{table}[H]
 \begin{tabular}{p{8cm}p{4cm}p{3cm}}
 \textit{Task names} & \textit{Assignee}&\textit{Duration}\\
@@ -78,37 +78,43 @@ Description of Error Handling & Brian Sun & 16/05 - 17/05\\
 Two examples & Paul Zhao & 16/05 - 17/05\\
 Integration into a report & All members & 17/05 - 18/05\\
 \end{tabular}
-\caption{Week1 Language Definition and Project Plan}
+\caption{Week 1 Language Definition and Project Plan}
 \end{table}
-
-\n Week 2 and 3 are the main period of constructing and testing the code. Tasks were assigned to each team member as in Table 2. The one who is assigned the task writes not only the module but also the \textit{pytest} where applicable. Though the task taker will be responsible to the module he writes, the reviewers need to review, comment and potentially modify the code, in order to ensure the quality and maintainability of the code.
+\n The work in the first week focuses on the grammar definition and verification. After studying the EBNF together, Charles wrote the first draft of the \textit{Grammar}. Then, all three team members each came up with two circuit examples, and wrote descriptions following the defined rules. Through this process the grammar was checked, and semantic errors were listed. \\
 
 \begin{table}[H]
 \begin{tabular}{p{4.5cm}p{3.5cm}p{4cm}p{2.5cm}}
 \textit{Task names} & \textit{Assignee} & \textit{Code Reviewer} & \textit{Duration}\\
 \hline
 Names & Paul Zhao & Charles + Brian & 18/05 - 21/05\\
-Scanner & Paul Zhao & Charles + Brian & 20/05 - 27/05\\
+Scanner & Paul Zhao & Charles + Brian & 20/05 - 26/05\\
 parse\_network & Paul Zhao & Charles + Brian & 23/05 - 27/05\\
-top\_down\_parsing & Charlse Zhou & Paul + Brian & 20/05 - 28/05\\
-error\_handling & Brian Sun & Paul + Charles & 25/05 - 30/05\\
-Network Construction & Charles Zhou & Paul + Brian & 27/05 - 30/05\\
-GUI Design & Brian Sun & Paul + Charlse & 18/05 - 30/05\\
+top\_down\_parsing & Charles Zhou & Paul + Brian & 20/05 - 27/05\\
+error\_handling & Brian Sun & Paul + Charles & 25/05 - 28/05\\
+Network Construction & Charles Zhou & Paul + Brian & 27/05 - 28/05\\
+GUI Design & Brian Sun & Paul + Charles & 18/05 - 28/05\\
+Final Integration & All Members & N/A & 28/05 - 30/05\\
 \end{tabular}
-\caption{Week2\&3: Build and Test Individual Blocks}
+\caption{Week 2\&3 Build and Test Individual Blocks}
 \end{table}
 
-\n According to the above task distribution, each team member is in charge of a big block, and this is also convenient for code maintenance. Once the change is announced, each member will quickly find the changes need to be done in his block, and do the necessary modifications. The allocation of responsibilities is listed below:
+\n Week 2 and 3 are the main period of constructing and testing the code. Tasks are assigned to each team member as in Table 2. The one who takes the task writes not only the module but also the \textit{pytest} where applicable. Though the task taker will be responsible to the modules he writes, the reviewers need to review, comment and potentially modify the code in order to ensure the quality and maintainability of the code. \par
+\vspace{0.3cm}
+
+\n According to the above task distribution, each team member is in charge of a big block, and this is also convenient for code maintenance. Once the change is announced, each member can quickly find the changes need to be done in his own block, and do the necessary modifications. The allocation of responsibilities is listed below:
+
 \begin{table}[H]
 \begin{tabular}{p{3cm}p{4cm}p{8cm}}
 Charles Zhou & in charge of & Grammar Definition and Top-down Parsing\\
 Paul Zhao & in charge of & Scanner module and All interconnections\\
 Brian Sun & in charge of & Error display and GUI\\
 \end{tabular}
-\caption{Week4: Maintenance}
+\caption{Week 4 Maintenance}
 \end{table}
 
+\section{Specification of Logic Description Language}
 
+<<<<<<< HEAD
 \section{Error Handling}
 In our design, both \textit{scanner} and \textit{parser} will identify errors, where different types of syntactic errors would be detected by both, while semantic errors would be found solely by the parser, evidently. The scanner only reports an error when it is unable to recogonize the incoming string, for instance when a string contains undefined characters or the string cannot be classified as any \emph{symbol\_type} (e.g. a number starting with digit '0', a name starting with a digit rather than a letter). The parser will identify the rest syntactic errors when the symbol interpreted by the scanner does not match the expected \emph{symbol\_type} specified by the language rules.
 
@@ -118,13 +124,21 @@ In our design, both \textit{scanner} and \textit{parser} will identify errors, w
 
 \section{Examples of Definition Files}
 In this section, we define two circuits following the language rules specified above, namely a sequential carry adder and a binary multiplier.
+=======
+\subsection{EBNF Source File}
 
+\lstinputlisting{language-defn.ebnf}
+%\inputminted{ebnf}{language-defn.ebnf}
+>>>>>>> 0837cf814fc91300ef720f5018a25a11f9ec3166
 
-\subsection{Sequential Carry Adder}
+\section{Examples of Definition Files}
+In this section, we define two circuits following the language rules specified above, namely a serial adder and a binary multiplier.
+
+\subsection{Seriel Adder}
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.6]{sequential_carry_adder.png}
-    \caption{circuit of a sequential carry adder}
+    \caption{Circuit of a Serial Adder}
 \end{figure}
 
 \emph{Definition File:}
@@ -137,7 +151,6 @@ In this section, we define two circuits following the language rules specified a
     \includegraphics[scale=0.6]{bin_multiplier.png}
     \caption{circuit of a binary multiplier}
 \end{figure}
-
 \emph{Definition File:}
 \lstinputlisting{defn_files/bin_multiplier.txt}
 
