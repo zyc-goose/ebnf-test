@@ -89,7 +89,7 @@ Integration into a report & All members & 17/05 - 18/05\\
 Names & Paul Zhao & Charles + Brian & 18/05 - 21/05\\
 Scanner & Paul Zhao & Charles + Brian & 20/05 - 26/05\\
 parse\_network & Paul Zhao & Charles + Brian & 23/05 - 27/05\\
-top\_down\_parsing & Charles Zhou & Paul + Brian & 20/05 - 27/05\\
+parsing functions & Charles Zhou & Paul + Brian & 20/05 - 27/05\\
 error\_handling & Brian Sun & Paul + Charles & 25/05 - 28/05\\
 Network Construction & Charles Zhou & Paul + Brian & 27/05 - 28/05\\
 GUI Design & Brian Sun & Paul + Charles & 18/05 - 28/05\\
@@ -142,15 +142,18 @@ statements take the form:
 \n \texttt{(function arg1 arg2 arg3 ...)}
 
 \section{Possible Semantic Errors}
-\n According to the grammar definition in the previous sections, ten possible semantic errors are spotted and categorised into 5 error types shown in the following table. 
+\n According to the grammar definition in the previous sections, nine possible semantic error scenarios are spotted and categorised into 5 error types described in the following table. 
 \begin{table}[H]
+\centering
 \begin{tabular}{p{5cm}|p{10cm}}
-\textit{Error Type} & \textit{Error Description and Examples}\\
+\textit{Error Type} & {\textit{Error Description and Examples}}\\
 \hline
-Device Declaration Error & 1. Repeated device declaration, e.g. (DEVICE G1 G1 are AND 2)\\
+Device Declaration Error & 1. Repeated device declaration, e.g. (DEVICE G1 G1 are AND 2). \\\hfill
+& 2. Device used but not declared, e.g. (CONNECT G1 to G2.I1) but G1 is not defined in the scope.\\
+& 3. Invalid Device Qualifier, e.g. (DEVICE G1 is AND 0) or (DEVICE S1 is SWITCH 2)\\
 \\
-& 2. Device used but not declared, e.g. (CONNECT G1 to G2.I1) but G1 is not defined in the scope\\
-& 3. Device used but not declared, e.g. (CONNECT G1 to G2.I1) but G1 is not defined in the scope\\
+Device Attribute Error & Unresolvable Attribute\\
+& 5. Unrecognised attribute name, e.g. G.foo, G.bar\\
 \end{tabular}
 \caption{Week 2\&3 Build and Test Individual Blocks}
 \end{table}
