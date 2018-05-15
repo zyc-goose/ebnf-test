@@ -166,16 +166,20 @@ Device Declaration Error & 1. Repeated device declaration, \newline e.g. (DEVICE
 \addlinespace[0.2cm]
 & 3. Invalid device qualifier, \newline e.g. (DEVICE G1 is AND 0) or (DEVICE S1 is SWITCH 2)\\
 \addlinespace[0.2cm]
+\midrule
 Device Attribute Error & 4. Attribute out of range, \newline e.g. (DEVICE G1 is AND 2)(CONNECT G1 to G2.I3)\\
 \addlinespace[0.2cm]
 & 5. Unrecognised attribute name, \newline e.g. G.foo, G.bar\\
 \addlinespace[0.2cm]
 & 6. Use '.' on devices without attributes, \newline e.g. CLOCK, SWITCH\\
 \addlinespace[0.2cm]
+\midrule
 Empty Device & 7. Device defined but no input is given\\
 \addlinespace[0.2cm]
+\midrule
 Connection Error & 8. Invalid connection. \newline e.g. (CONNECT G1 to G1) or (CONNECT G1.I1 to G2.I1)\\
 \addlinespace[0.2cm]
+\midrule
 Reserved word error & 9. Reserved word used as the name, \newline e.g. (DEVICE DEVICE is AND 2)\\
 \addlinespace[0.2cm]
 \end{longtable}
