@@ -142,7 +142,18 @@ statements take the form:
 \n \texttt{(function arg1 arg2 arg3 ...)}
 
 \section{Possible Semantic Errors}
-\n 
+\n According to the grammar definition in the previous sections, ten possible semantic errors are spotted and categorised into 5 error types shown in the following table. 
+\begin{table}[H]
+\begin{tabular}{p{5cm}|p{10cm}}
+\textit{Error Type} & \textit{Error Description and Examples}\\
+\hline
+Device Declaration Error & 1. Repeated device declaration, e.g. (DEVICE G1 G1 are AND 2)\\
+\\
+& 2. Device used but not declared, e.g. (CONNECT G1 to G2.I1) but G1 is not defined in the scope\\
+& 3. Device used but not declared, e.g. (CONNECT G1 to G2.I1) but G1 is not defined in the scope\\
+\end{tabular}
+\caption{Week 2\&3 Build and Test Individual Blocks}
+\end{table}
 
 \section{Error Handling}
 \n In our design, both \textit{scanner} and \textit{parser} will identify errors, where different types of syntactic errors would be detected by both, while semantic errors would be found solely by the parser, evidently. The scanner only reports an error when it is unable to recogonise the incoming string, for instance when a string contains undefined characters or the string cannot be classified as any \emph{symbol\_type} (e.g. a number starting with '0's, a name starting with a digit rather than a letter, etc). The parser will identify the rest syntactic errors when the symbol interpreted by the scanner does not match the expected \emph{symbol\_type} specified by the language rules.
