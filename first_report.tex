@@ -116,13 +116,33 @@ Brian Sun & in charge of & Error display and GUI\\
 \lstinputlisting{language-defn.ebnf}
 
 \section{Error Handling}
-In our design, both \textit{scanner} and \textit{parser} will identify errors, where different types of syntactic errors would be detected by both, while semantic errors would be found solely by the parser, evidently. The scanner only reports an error when it is unable to recogonize the incoming string, for instance when a string contains undefined characters or the string cannot be classified as any \emph{symbol\_type} (e.g. a number starting with digit '0', a name starting with a digit rather than a letter). The parser will identify the rest syntactic errors when the symbol interpreted by the scanner does not match the expected \emph{symbol\_type} specified by the language rules.
+In our design, both \textit{scanner} and \textit{parser} will identify errors,
+where different types of syntactic errors would be detected by both, while
+semantic errors would be found solely by the parser, evidently. The scanner only
+reports an error when it is unable to recogonize the incoming string, for
+instance when a string contains undefined characters or the string cannot be
+classified as any \emph{symbol\_type} (e.g. a number starting with digit '0', a
+name starting with a digit rather than a letter). The parser will identify the
+rest syntactic errors when the symbol interpreted by the scanner does not match
+the expected \emph{symbol\_type} specified by the language rules.
 
-\n To track the locations of each error, two variables \textit{line} and \textit{pos} will be defined and updated within the class \textit{scanner}, in order to track the location of the current character. Whenever an error is encountered, the \textit{error} function will be called. It will get the error location via the two variables from the scanner and pass the error information to \textit{GUI error display}. Another variable \emph{error\_count} in the class \textit{parser} will record the total number of errors.
+\vspace{0.3cm}
 
-\n It is required that symbols must be skipped until a suitable point to resume parsing is reached. This is enabled by forcing every statement to be enclosed by brackets '(', ')'. After detecting an error, the parser will advance and look for the next left bracket '(', which indicates the start of a new statement and carry on parsing.
+\n To track the locations of each error, two variables \textit{line} and
+\textit{pos} will be defined and updated within the class \textit{scanner}, in
+order to track the location of the current character. Whenever an error is
+encountered, the \textit{error} function will be called. It will get the error
+location via the two variables from the scanner and pass the error information
+to \textit{GUI error display}. Another variable \emph{error\_count} in the class
+\textit{parser} will record the total number of errors.
 
+\vspace{0.3cm}
 
+\n It is required that symbols must be skipped until a suitable point to resume
+parsing is reached. This is enabled by forcing every statement to be enclosed by
+brackets '(', ')'. After detecting an error, the parser will advance and look
+for the next left bracket '(', which indicates the start of a new statement and
+carry on parsing.
 
 \section{Examples of Definition Files}
 In this section, we define two circuits following the language rules specified above, namely a serial adder and a binary multiplier.
