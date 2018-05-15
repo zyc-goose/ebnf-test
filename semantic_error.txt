@@ -13,7 +13,7 @@ Device Attribute Error
 8. Attempt to use '.' on devices without attributes (CLOCK, SWITCH)
 
 Empty Device
-9. Deviced defined but no input is given
+9. Device defined but no input is given
 
 Reserved word error
 10. Reserved word used as the name, e.g. 'DEVICE'
