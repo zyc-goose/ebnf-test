@@ -65,43 +65,56 @@
 
 \section{Introduction}
 \n The aim of this project is to develop a logic simulation program in Python. Firstly the teamwork planning is proposed. Then, the \textit{EBNF grammar} is defined, followed by the analyses of possible semantic errors based on the grammar, and relevant error handling approaches. Finally, two example logic definitions are given for demonstration.
+
 \section{Teamwork Planning}
-\begin{table}[H]
-\begin{tabular}{p{8cm}p{4cm}p{3cm}}
-\textit{Task names} & \textit{Assignee}&\textit{Duration}\\
-\hline
-Project outline and Task distribution & Brian Sun & 11/05 - 11/05\\
-Version Control Setup & All members & 14/05 - 14/05\\
-Grammar Draft 	& Charles Zhou & 12/05 - 13/05\\
-Modification and Semantic Error & All members & 13/05 - 16/05\\
-Description of Error Handling & Brian Sun & 16/05 - 17/05\\
-Two examples & Paul Zhao & 16/05 - 17/05\\
-Integration into a report & All members & 17/05 - 18/05\\
-\end{tabular}
-\caption{Week 1 Language Definition and Project Plan}
-\end{table}
-\n The work in the first week focuses on the grammar definition and verification. After studying the EBNF together, Charles wrote the first draft of the \textit{Grammar}. Then, all three team members each came up with two circuit examples, and wrote descriptions following the defined rules. Through this process the grammar was checked, and semantic errors were listed. \\
 
-\begin{table}[H]
-\begin{tabular}{p{4.5cm}p{3.5cm}p{4cm}p{2.5cm}}
-\textit{Task names} & \textit{Assignee} & \textit{Code Reviewer} & \textit{Duration}\\
-\hline
-Names & Paul Zhao & Charles + Brian & 18/05 - 21/05\\
-Scanner & Paul Zhao & Charles + Brian & 20/05 - 26/05\\
-parse\_network & Paul Zhao & Charles + Brian & 23/05 - 27/05\\
-parsing functions & Charles Zhou & Paul + Brian & 20/05 - 27/05\\
-error\_handling & Brian Sun & Paul + Charles & 25/05 - 28/05\\
-Network Construction & Charles Zhou & Paul + Brian & 27/05 - 28/05\\
-GUI Design & Brian Sun & Paul + Charles & 18/05 - 28/05\\
-Final Integration & All Members & N/A & 28/05 - 30/05\\
-\end{tabular}
-\caption{Week 2\&3 Build and Test Individual Blocks}
-\end{table}
+%\begin{table}[H]
+%\begin{tabular}{p{8cm}p{4cm}p{3cm}}
+%\textit{Task names} & \textit{Assignee}&\textit{Duration}\\
+%\hline
+%Task distribution & Brian Sun & 11/05 - 11/05\\
+%Version Control Setup & All members & 14/05 - 14/05\\
+%Grammar Draft 	& Charles Zhou & 12/05 - 13/05\\
+%Modification and Semantic Error & All members & 13/05 - 16/05\\
+%Description of Error Handling & Brian Sun & 16/05 - 17/05\\
+%Two examples & Paul Zhao & 16/05 - 17/05\\
+%Integration into a report & All members & 17/05 - 18/05\\
+%\end{tabular}
+%\caption{Week 1 Language Definition and Project Plan}
+%\end{table}
 
-\n Week 2 and 3 are the main period of constructing and testing the code. Tasks are assigned to each team member as in Table 2. The one who takes the task writes not only the module but also the \textit{pytest} where applicable. Though the task taker will be responsible to the modules he writes, the reviewers need to review, comment and potentially modify the code in order to ensure the quality and maintainability of the code. \par
-\vspace{0.3cm}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{week1_gantt}
+    \caption{Week 1 Gantt Chart}
+\end{figure}
 
-\n According to the above task distribution, each team member is in charge of a big block, and this is also convenient for code maintenance. Once the change is announced, each member can quickly find the changes need to be done in his own block, and do the necessary modifications. The allocation of responsibilities is listed below:
+\n The work in the first week focuses on the grammar definition and verification. After studying the EBNF together, Charles wrote the first draft of the \textit{Grammar}. Then, all three team members came up with circuit examples, and wrote definition files following the rules. Through this process the grammar was double checked, and semantic errors were spotted. \\
+
+%\begin{table}[H]
+%\begin{tabular}{p{4.5cm}p{3.5cm}p{4cm}p{2.5cm}}
+%\textit{Task names} & \textit{Assignee} & \textit{Code Reviewer} & \textit{Duration}\\
+%\hline
+%Names & Paul Zhao & Charles + Brian & 18/05 - 20/05\\
+%Scanner & Paul Zhao & Charles + Brian & 20/05 - 25/05\\
+%parse\_network & Paul Zhao & Charles + Brian & 23/05 - 25/05\\
+%parsing functions & Charles Zhou & Paul + Brian & 18/05 - 27/05\\
+%error\_handling & Brian Sun & Paul + Charles & 25/05 - 27/05\\
+%Network Construction & Charles Zhou & Paul + Brian & 26/05 - 27/05\\
+%GUI Design & Brian Sun & Paul + Charles & 18/05 - 28/05\\
+%Final Integration & All Members & N/A & 28/05 - 30/05\\
+%\end{tabular}
+%\caption{Week 2\&3 Build and Test Individual Blocks}
+%\end{table}
+
+\n Week 2 and 3 are the main period for constructing and testing the code. Tasks are assigned to each team member as in the Gantt Chart. The one who takes the task writes not only the module but also the \textit{pytest} where applicable. Though tasks were assigned to a single person, the code review process will be employed throughout this project. The reviewers, by default the other two members, will need to review, comment and potentially modify the code to ensure the quality and maintainability of the code. \par
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{week23_gantt}
+    \caption{Week 2\&3 Gantt Chart}
+\end{figure}
+
+\n According to the above task distribution, each team member is in charge of a big block, and this is also convenient for code maintenance. Once the change is announced, each member should be able to quickly find the changes need to be done in his own block, and do the necessary modifications. The allocation of responsibilities is listed below:
 
 \begin{table}[H]
 \begin{tabular}{p{3cm}p{4cm}p{8cm}}
@@ -174,11 +187,9 @@ Each terminal can be either an identifier (\texttt{G1}) or an identifier plus
 its attribute (\texttt{G1.I1}).
 \vspace{0.3cm}
 
-\n The statement for monitoring device terminals takes the following form:
+\n The statement for monitoring device terminals takes the following form which should be straightforward to be understood.
 
-\vspace{0.5cm} \texttt{(MONITOR term1 term2 ...)} \vspace{0.5cm}
-
-\n which should be straightforward to be understood.
+\vspace{0.5cm} \texttt{(MONITOR term1 term2 ...)}
 
 \section{Possible Semantic Errors}
 \n According to the grammar definition in the previous sections, nine possible semantic error scenarios are spotted and categorised into 5 error types described in the following table. 
