@@ -140,6 +140,18 @@ statements take the form:
 
 \vspace{0.3cm}
 \n \texttt{(function arg1 arg2 arg3 ...)}
+\vspace{0.3cm}
+
+\n where \texttt{function} is one of the keywords \{\texttt{DEVICE},
+\texttt{CONNECT}, \texttt{MONITOR}\}. Each of the arguments(\texttt{arg1},
+\texttt{arg2}, etc.) can be a device/terminal name, a keyword(\texttt{is},
+\texttt{are}), a number or a device type.
+
+\n The statement for device declaration takes the following form:
+
+\vspace{0.3cm}
+\n \texttt{(DEVICE device1 device2 ... is/are device\textunderscore type qualifier)}
+\vspace{0.3cm}
 
 \section{Possible Semantic Errors}
 \n According to the grammar definition in the previous sections, nine possible semantic error scenarios are spotted and categorised into 5 error types described in the following table. 
