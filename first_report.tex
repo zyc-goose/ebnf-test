@@ -115,6 +115,9 @@ Brian Sun & in charge of & Error display and GUI\\
 \section{Specification of Logic Description Language}
 \lstinputlisting{language-defn.ebnf}
 
+\section{Possible Semantic Errors}
+There are altogether 
+
 \section{Error Handling}
 \n In our design, both \textit{scanner} and \textit{parser} will identify errors, where different types of syntactic errors would be detected by both, while semantic errors would be found solely by the parser, evidently. The scanner only reports an error when it is unable to recogonise the incoming string, for instance when a string contains undefined characters or the string cannot be classified as any \emph{symbol\_type} (e.g. a number starting with '0's, a name starting with a digit rather than a letter, etc). The parser will identify the rest syntactic errors when the symbol interpreted by the scanner does not match the expected \emph{symbol\_type} specified by the language rules.
 
