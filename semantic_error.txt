@@ -1,19 +1,18 @@
 Device Declaration Error
 1. Repeated variable declaration
 2. Variable used but not declared
-3. Missing device qualifier
-4. Device qualifier out of range, e.g. NAND 17, SWITCH 2
+3. Device qualifier out of range, e.g. NAND 17, SWITCH 2
 
 Connection Error
-5. Invalid connection. e.g. Input to input, output to output
+4. Invalid connection. e.g. Input to input, output to output
 
 Device Attribute Error
-6. Device G has 2 input, but G.I3 is referenced
-7. Unrecognised attribute name, e.g. G.foo, G.bar
-8. Attempt to use '.' on devices without attributes (CLOCK, SWITCH)
+5. Device G has 2 input, but G.I3 is referenced
+6. Unrecognised attribute name, e.g. G.foo, G.bar
+7. Attempt to use '.' on devices without attributes (CLOCK, SWITCH)
 
 Empty Device
-9. Device defined but no input is given
+8. Device defined but no input is given
 
 Reserved word error
-10. Reserved word used as the name, e.g. 'DEVICE'
+9. Reserved word used as the name, e.g. 'DEVICE'
