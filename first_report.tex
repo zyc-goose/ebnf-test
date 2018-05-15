@@ -2,7 +2,7 @@
 \textwidth 17cm \oddsidemargin 0cm \topmargin -2cm \textheight
 24cm \footskip 1.5cm \usepackage{epsfig}
 \usepackage{amsmath,graphicx,psfrag,pstcol,float,listings,color}
-\usepackage{algorithm,algpseudocode,booktabs}
+\usepackage{algorithm,algpseudocode,booktabs,longtable}
 \usepackage{multirow}
 %\usepackage{minted}
 \graphicspath{{./defn_files/}}
@@ -149,25 +149,37 @@ statements take the form:
 
 \n The statement for device declaration takes the following form:
 
-\vspace{0.3cm}
-\n \texttt{(DEVICE device1 device2 ... is/are device\textunderscore type qualifier)}
-\vspace{0.3cm}
+\vspace{0.3cm} \n \texttt{(DEVICE device1 device2 ... \textbf{is}/\textbf{are}
+  \detokenize{device_type} [qualifier])} \vspace{0.3cm}
 
 \section{Possible Semantic Errors}
 \n According to the grammar definition in the previous sections, nine possible semantic error scenarios are spotted and categorised into 5 error types described in the following table. 
 \begin{table}[H]
 \centering
-\begin{tabular}{p{5cm}|p{10cm}}
+\begin{longtable}{p{5cm}p{10cm}}
 \textit{Error Type} & {\textit{Error Description and Examples}}\\
-\hline
-Device Declaration Error & 1. Repeated device declaration, e.g. (DEVICE G1 G1 are AND 2). \\\hfill
-& 2. Device used but not declared, e.g. (CONNECT G1 to G2.I1) but G1 is not defined in the scope.\\
-& 3. Invalid Device Qualifier, e.g. (DEVICE G1 is AND 0) or (DEVICE S1 is SWITCH 2)\\
-\\
-Device Attribute Error & Unresolvable Attribute\\
-& 5. Unrecognised attribute name, e.g. G.foo, G.bar\\
-\end{tabular}
-\caption{Week 2\&3 Build and Test Individual Blocks}
+\toprule
+\addlinespace[0.2cm]
+Device Declaration Error & 1. Repeated device declaration, \newline e.g. (DEVICE G1 G1 are AND 2). \\
+\addlinespace[0.2cm]
+& 2. Device used but not declared, \newline e.g. (CONNECT G1 to G2.I1) but G1 is not defined in the scope.\\
+\addlinespace[0.2cm]
+& 3. Invalid device qualifier, \newline e.g. (DEVICE G1 is AND 0) or (DEVICE S1 is SWITCH 2)\\
+\addlinespace[0.2cm]
+Device Attribute Error & 4. Attribute out of range, \newline e.g. (DEVICE G1 is AND 2)(CONNECT G1 to G2.I3)\\
+\addlinespace[0.2cm]
+& 5. Unrecognised attribute name, \newline e.g. G.foo, G.bar\\
+\addlinespace[0.2cm]
+& 6. Use '.' on devices without attributes, \newline e.g. CLOCK, SWITCH\\
+\addlinespace[0.2cm]
+Empty Device & 7. Device defined but no input is given\\
+\addlinespace[0.2cm]
+Connection Error & 8. Invalid connection. \newline e.g. (CONNECT G1 to G1) or (CONNECT G1.I1 to G2.I1)\\
+\addlinespace[0.2cm]
+Reserved word error & 9. Reserved word used as the name, \newline e.g. (DEVICE DEVICE is AND 2)\\
+\addlinespace[0.2cm]
+\end{longtable}
+\caption{Semantic Errors List}
 \end{table}
 
 \section{Error Handling}
