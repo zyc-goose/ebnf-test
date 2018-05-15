@@ -10,10 +10,10 @@ Connection Error
 Device Attribute Error
 6. Device G has 2 input, but G.I3 is referenced
 7. Unrecognised attribute name, e.g. G.foo, G.bar
-
+8. Attempt to use '.' on devices without attributes (CLOCK, SWITCH)
 
 Empty Device
-8. Deviced defined but no input is given
+9. Deviced defined but no input is given
 
 Reserved word error
-9. Reserved word used as the name, e.g. 'DEVICE'
+10. Reserved word used as the name, e.g. 'DEVICE'
