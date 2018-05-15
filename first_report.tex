@@ -132,14 +132,10 @@ zeros are invalid and will induce syntax error (e.g. \texttt{000}, \texttt{0023}
 are invalid numbers). A valid identifier(name) begins with a character from the
 alphabet, followed by a combination of digits and alphabet characters.
 
-\vspace{0.3cm}
+\subsection{Comment on Main Grammar}
 
-\n We also defined whitespace characters, which include normal space,
-newline(\texttt{'$\backslash$n'}) and tab(\texttt{'$\backslash$t'}). Since spacing
-is used to separate the keywords, numbers and identifiers in the definition
-file, we have defined a non-terminal variable \texttt{space} which contains at
-least one whitespace character. \texttt{space} plays a crucial part in the
-language grammar.
+The grammar definition is inspired by the Lisp language, where statements are
+enclosed by pairs of parentheses. 
 
 \section{Possible Semantic Errors}
 \n 
