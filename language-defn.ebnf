@@ -11,29 +11,19 @@ alpha = alpha_upper | alpha_lower ;
 digit_nonzero = '1' | '2' | '3' | '4' | '5' |
                 '6' | '7' | '8' | '9' ;
 digit = '0' | digit_nonzero ;
-white_space = ' ' | '\n' | '\t' ;
-space = white_space, { white_space } ;
 identifier = alpha, { alpha | digit } ;
 number = '0' | digit_nonzero, { digit } ;
 
 (* MAIN GRAMMAR *)
 definition_file = { statement } ;
-statement = { white_space },
-            '(', ( device | connect | monitor ), ')',
-            { white_space } ;
-device = { white_space },
-         'DEVICE', space, identifier, { space, identifier },
-         space, ('is'|'are'), space, device_type,
-         { white_space } ;
+statement = '(', ( device | connect | monitor ), ')' ;
+device = 'DEVICE', identifier, { identifier },
+         ('is'|'are'), device_type ;
 device_type = device_no_qualifier |
-              device_with_qualifier, space, number ;
+              device_with_qualifier, number ;
 device_with_qualifier = 'CLOCK' | 'SWITCH' |
                         'AND' | 'NAND' | 'OR' | 'NOR' ;
 device_no_qualifier = 'DTYPE' | 'XOR' ;
-connect = { white_space },
-          'CONNECT', space, device_terminal, space,
-          'to', space, device_terminal, { white_space } ;
-monitor = { white_space },
-          'MONITOR', space, device_terminal,
-          { space, device_terminal }, { white_space } ;
+connect = 'CONNECT', device_terminal, 'to', device_terminal ;
+monitor = 'MONITOR', device_terminal, { device_terminal } ;
 device_terminal = identifier, [ '.', identifier ] ;
