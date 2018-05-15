@@ -114,6 +114,10 @@ Brian Sun & in charge of & Error display and GUI\\
 
 \section{Specification of Logic Description Language}
 
+This section contains the full listing of the EBNF source file for language
+specification, together with necessary comments to help understand how the
+language works.
+
 \subsection{EBNF Source File}
 
 \lstinputlisting{language-defn.ebnf}
@@ -138,19 +142,43 @@ The grammar definition is inspired by the Lisp language, where statements are
 enclosed by pairs of parentheses. In our logic description language, all the
 statements take the form:
 
-\vspace{0.3cm}
-\n \texttt{(function arg1 arg2 arg3 ...)}
-\vspace{0.3cm}
+\vspace{0.5cm}
+\texttt{(function arg1 arg2 arg3 ...)}
+\vspace{0.5cm}
 
 \n where \texttt{function} is one of the keywords \{\texttt{DEVICE},
-\texttt{CONNECT}, \texttt{MONITOR}\}. Each of the arguments(\texttt{arg1},
-\texttt{arg2}, etc.) can be a device/terminal name, a keyword(\texttt{is},
-\texttt{are}), a number or a device type.
+\texttt{CONNECT}, \texttt{MONITOR}\}. Each of the arguments (\texttt{arg1},
+\texttt{arg2}, ...) can be a device/terminal name, a keyword (\texttt{is},
+\texttt{are}), a number or a device type. \vspace{0.3cm}
 
 \n The statement for device declaration takes the following form:
 
-\vspace{0.3cm} \n \texttt{(DEVICE device1 device2 ... \textbf{is}/\textbf{are}
-  \detokenize{device_type} [qualifier])} \vspace{0.3cm}
+\vspace{0.5cm} \texttt{(DEVICE device1 device2 ... \textbf{is}/\textbf{are}
+  \detokenize{device_type} [qualifier])} \vspace{0.5cm}
+
+\n The device names (device1, device2, ...) should be valid identifiers, as
+defined in the original EBNF file. The keywords \texttt{is} and \texttt{are} can
+be used interchangeably to separate the list of device names and the device type
+(so the keywords \texttt{is} and \texttt{are} are totally equivalent, and the
+user does not need to conform to the English grammar!). A qualifier is needed
+for some device types in order to fully specify them (e.g. the number of inputs
+for \texttt{NAND} gate), while for other device types the qualifier should be
+omitted. \vspace{0.3cm}
+
+\n The statement for connection of device terminals takes the following form:
+
+\vspace{0.5cm} \texttt{(CONNECT term1 to term2)} \vspace{0.5cm}
+
+\n The keyword \texttt{to} is used to separate the two terminals to be connected.
+Each terminal can be either an identifier (\texttt{G1}) or an identifier plus
+its attribute (\texttt{G1.I1}).
+\vspace{0.3cm}
+
+\n The statement for monitoring device terminals takes the following form:
+
+\vspace{0.5cm} \texttt{(MONITOR term1 term2 ...)} \vspace{0.5cm}
+
+\n which should be straightforward to be understood.
 
 \section{Possible Semantic Errors}
 \n According to the grammar definition in the previous sections, nine possible semantic error scenarios are spotted and categorised into 5 error types described in the following table. 
