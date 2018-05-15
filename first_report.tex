@@ -113,10 +113,33 @@ Brian Sun & in charge of & Error display and GUI\\
 \end{table}
 
 \section{Specification of Logic Description Language}
+
+\subsection{EBNF Source File}
+
 \lstinputlisting{language-defn.ebnf}
 
-\section{Possible Semantic Errors}
-There are altogether 
+\subsection{Comment on Basic Elements}
+
+The first half of the EBNF file specifies the rules of basic elements, including the
+alphabet, valid identifier and number, and whitespace sequence.
+
+\vspace{0.3cm}
+
+\n The alphabet contains all the upper-case and lower-case English characters
+(i.e. \texttt{a-z} and \texttt{A-Z}). A valid number is either zero or a digit
+sequence starts with a non-zero digit. Therefore, numbers with redundant leading
+zeros are invalid and will induce syntax error (e.g. \texttt{000}, \texttt{0023}
+are invalid numbers). A valid identifier(name) begins with a character from the
+alphabet, followed by a combination of digits and alphabet characters.
+
+\vspace{0.3cm}
+
+\n We also defined whitespace characters, which include normal space,
+newline(\texttt{'$\backslash$n'}) and tab(\texttt{'$\backslash$t'}). Since spacing
+is used to separate the keywords, numbers and identifiers in the definition
+file, we have defined a non-terminal variable \texttt{space} which contains at
+least one whitespace character. \texttt{space} plays a crucial part in the
+language grammar.
 
 \section{Error Handling}
 \n In our design, both \textit{scanner} and \textit{parser} will identify errors, where different types of syntactic errors would be detected by both, while semantic errors would be found solely by the parser, evidently. The scanner only reports an error when it is unable to recogonise the incoming string, for instance when a string contains undefined characters or the string cannot be classified as any \emph{symbol\_type} (e.g. a number starting with '0's, a name starting with a digit rather than a letter, etc). The parser will identify the rest syntactic errors when the symbol interpreted by the scanner does not match the expected \emph{symbol\_type} specified by the language rules.
