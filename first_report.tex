@@ -206,20 +206,26 @@ Device Declaration Error & 1. Repeated device declaration, \newline e.g. (DEVICE
 & 3. Invalid device qualifier, \newline e.g. (DEVICE G1 is AND 0) or (DEVICE S1 is SWITCH 2)\\
 \addlinespace[0.2cm]
 \midrule
-Device Attribute Error & 4. Attribute out of range, \newline e.g. (DEVICE G2 is AND 2)(CONNECT G1 to G2.I3)\\
+Port Absent Error & 4. Attribute out of range, \newline e.g. (DEVICE G1 is AND 2)(CONNECT G1 to G2.I3)\\
 \addlinespace[0.2cm]
 & 5. Unrecognised attribute name, \newline e.g. G.foo, G.bar\\
 \addlinespace[0.2cm]
 & 6. Use '.' on devices without attributes, \newline e.g. CLOCK, SWITCH\\
 \addlinespace[0.2cm]
 \midrule
-Empty Device & 7. Device defined but no input is given\\
+Empty Device & 7. Device, not Switch/Clock, has missing input.\\
 \addlinespace[0.2cm]
 \midrule
-Connection Error & 8. Invalid connection. \newline e.g. (CONNECT G1 to G1) or (CONNECT G1.I1 to G2.I1)\\
+Connection Error & 8. Output-output and input-input connection, \newline e.g. (CONNECT G1 to G1) or (CONNECT G1.I1 to G2.I1)\\
+& 9. Multiple outputs to single input, \newline e.g. (CONNECT G1 to G3.I1)(CONNECT G2 to G3.I1)\\
 \addlinespace[0.2cm]
 \midrule
-Reserved word error & 9. Reserved word used as the name, \newline e.g. (DEVICE DEVICE is AND 2)\\
+Reserved Word Error & 10. Reserved word used as the name, \newline e.g. (DEVICE DEVICE is AND 2)\\
+\addlinespace[0.2cm]
+\midrule
+Monitor Error & 11. Repeated Monitor display, \newline e.g. (MONITOR G1 G1 G1)\\
+\addlinespace[0.2cm]
+& 12. Monitor displays input signal, \newline e.g. (MONITOR G1.I1)\\
 \addlinespace[0.2cm]
 \end{longtable}
 \caption{Semantic Errors List}
