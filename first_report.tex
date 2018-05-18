@@ -226,12 +226,21 @@ Reserved word error & 9. Reserved word used as the name, \newline e.g. (DEVICE D
 \end{table}
 
 \section{Error Handling}
-\n In our design, both \textit{scanner} and \textit{parser} will identify errors, where different types of syntactic errors would be detected by both, while semantic errors would be found solely by the parser, evidently. The scanner only reports an error when it is unable to recogonise the incoming string, for instance when a string contains undefined characters or the string cannot be classified as any \emph{symbol\_type} (e.g. a number starting with '0's, a name starting with a digit rather than a letter, etc). The parser will identify the rest syntactic errors when the symbol interpreted by the scanner does not match the expected \emph{symbol\_type} specified by the language rules.
-
+In this section, we will consider two major aspects in error handling: 
+\n a.Identifying errors
+\n b.Reporting and handling errors
 
 \vspace{0.3cm}
 
-\n To track the locations of each error, two variables \textit{line} and \textit{pos} will be defined and updated within the class \textit{scanner}, in order to track the location of the current character. Whenever an error is encountered, the \textit{error} function will be called. It will get the error location via the two variables from the scanner and pass the error information to \textit{error display}. Another variable \emph{error\_count} in the class \textit{parser} will record the total number of errors.
+\n In our design, both \textit{scanner} and \textit{parser} will identify errors, where different types of syntactic errors would be detected by both, while semantic errors would be found solely by the parser, evidently. The scanner only identifies an syntax error when it is unable to recogonise the incoming string, for instance when a string contains undefined characters or the string cannot be classified as any \emph{symbol\_type} (e.g. a number starting with '0's, a name starting with a digit rather than a letter, etc). The parser will identify the rest syntactic errors when the symbol interpreted by the scanner does not match the expected \emph{symbol\_type} specified by the language rules.
+
+\vspace{0.3cm}
+
+\n To simplify the error handling procedure, all errors will be reported and handled by parser. More specifically speaking, the syntax errors identified by scanner will not be handled by scanner. Instead, the scanner passes an \emph{error symbol\_type} and an \emph{error symbol\_ID} to the parser. The parser will then call error handling for all errors identified.
+
+\vspace{0.3cm}
+
+\n To track the locations of each error, two variables \textit{line} and \textit{pos} will be defined and updated within the class \textit{scanner}, in order to track the location of the current character. Whenever an error is encountered, the \textit{error} function will be called. It will get the error location via the two variables from the scanner and pass the error information to \textit{error\_display}. Another variable \emph{error\_count} in the class \textit{parser} will record the total number of errors.
 
 
 \vspace{0.3cm}
@@ -245,7 +254,7 @@ carry on parsing.
 \section{Examples of Definition Files}
 \n Two circuit definition examples are given in this section\par
 
-\subsection{Seriel Adder}
+\subsection{Serial Adder}
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.55]{sequential_carry_adder.png}
