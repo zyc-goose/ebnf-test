@@ -192,7 +192,7 @@ its attribute (\texttt{G1.I1}).
 \vspace{0.5cm} \texttt{(MONITOR term1 term2 ...)}
 
 \section{Possible Semantic Errors}
-\n According to the grammar definition in the previous sections, nine possible semantic error scenarios are spotted and categorised into 5 error types described in the following table. 
+\n According to the grammar definition in the previous sections, nine possible semantic error scenarios are spotted and categorised into 5 error types described in the following table.
 \begin{table}[H]
 \centering
 \begin{longtable}{p{5cm}p{10cm}}
@@ -206,7 +206,7 @@ Device Declaration Error & 1. Repeated device declaration, \newline e.g. (DEVICE
 & 3. Invalid device qualifier, \newline e.g. (DEVICE G1 is AND 0) or (DEVICE S1 is SWITCH 2)\\
 \addlinespace[0.2cm]
 \midrule
-Device Attribute Error & 4. Attribute out of range, \newline e.g. (DEVICE G1 is AND 2)(CONNECT G1 to G2.I3)\\
+Device Attribute Error & 4. Attribute out of range, \newline e.g. (DEVICE G2 is AND 2)(CONNECT G1 to G2.I3)\\
 \addlinespace[0.2cm]
 & 5. Unrecognised attribute name, \newline e.g. G.foo, G.bar\\
 \addlinespace[0.2cm]
