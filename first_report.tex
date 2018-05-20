@@ -234,7 +234,7 @@ Monitor Error & 11. Repeated Monitor display, \newline e.g. (MONITOR G1 G1 G1)\\
 In this section, three major aspects in error handling will be considered:\par
 \vspace{0.2cm}
 \n a. Identifying errors\\
-\n b. Reporting and handling errors\\
+\n b. Handling errors\\
 \n c. Displaying errors\\
 \vspace{0.3cm}
 
@@ -245,8 +245,16 @@ characters or it cannot be classified as any \emph{symbol\_type} (e.g. a number
 starting with '0's, a name starting with a digit rather than a letter, etc). The
 parser will identify the rest of syntactic errors when the symbol interpreted by
 the scanner does not match the expected \emph{symbol\_type} specified by the
-language rules. The \textit{parser} will identify the semantic errors as
-well.\par
+language rules.
+
+\vspace{0.3cm}
+
+\n The \textit{parser} will identify the semantic errors as well: if the parser can
+successfully read a statement without syntactic errors, it will call the
+relevant methods in \texttt{devices}, \texttt{network} and \texttt{monitors}
+modules and receive error codes from them. If the received error code shows that
+an error has occurred, then the parser will generate its own corresponding error
+code and call \texttt{self.error\_display()} to show the error.
 
 \vspace{0.3cm}
 
